@@ -1,0 +1,117 @@
+<html>
+<head>
+   	<title>Videos and Maps</title>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.11.2/css/ol.css" type="text/css" />
+    <script src="http://openlayers.org/en/v3.11.2/build/ol.js"></script>
+    
+   	<script type="text/javascript" src="js/demo.js"></script> 
+   	<script type="text/javascript" src="js/gpxToTrack.js"></script>   
+   	<script type="text/javascript" src="js/togeojson.js"></script>   
+   	   
+   	   
+   	<script type="text/javascript" src="js/captionator-min.js"></script>   
+   
+	<script type="text/javascript">
+		window.addEventListener("load",function(eventData) {
+			//captionator.captionify();
+			// init the demo
+			init();
+			initMap();
+		});
+	</script>
+   
+   <style type="text/css">
+    
+       #details label {
+           width: 150px;
+       }
+       
+       #video {
+           /* float: left; */
+           xdisplay: inline-block;
+           margin-left: 50px; 
+           width: 600px;
+           height: 276px;
+           margin-bottom: 20px;
+           background-color: black;
+       }
+       
+       #mapbox {
+           width: 600px;
+           height: 300px;
+           xdisplay: inline-block;
+           margin-left: 50px;  
+           margin-bottom: 20px;                               
+       }
+       
+       .map {       
+           width: 600px;
+           height: 276px;       
+       }
+   
+       #details {
+           width: 600px; height: 276px; display: inline-block;
+           margin-left: 50px;  
+           
+       }
+   </style>
+</head>
+
+<body>
+<h1>Videos and Maps</h1>
+	<div id="intro">
+
+	<p>This is an example of mixing video and a map, to match what is being seen in the
+	video to a a geographical location. Using a mix of HTML5 video and Open Layers.</p>
+
+	</div>
+
+<!-- http://wiki.webmproject.org/webm-metadata/temporal-metadata/webvtt-metadata -->
+
+	<div id="demo">
+
+		<div id="video">
+			<video controls="controls" autobuffer="" loop="" id="myVideo" width="600px">
+				<source src="media/arduino.m4v" type="video/mp4" />
+				<!--
+				<track id="metadataTrack" kind="metadata" src="media/map2.vtt" type="text/vtt" label="Geographical Track" default="" />
+				-->
+				<div class="message">
+					<p><strong>Sorry, you'll need an HTML5 Video capable browser to view this example.</strong></p>
+				</div>
+			</video>
+		</div>
+
+		<div id="mapbox">
+			<div id="map" class="map"><div class="message">Something went wrong. There should be a map here.</div></div>
+	
+			<div class="configuration" >
+			<input type="radio" style="clear: both" name="displayMode" value="keepCentered"/> <label>Keep centered</label>
+			&#xa0;&#xa0;
+			<input type="radio" style="clear: both" name="displayMode" value="frameRoute" checked=""/> <label>Frame full route</label>
+			&#xa0;&#xa0;
+			<input type="radio" style="clear: both" name="displayMode" value="manual"/> <label>Manual view</label>			
+			</div>
+		</div>
+
+		<div id="details" style="">
+			<label>Planet:</label> <span id="city" >Earth</span><br/>
+			<label>Nearest Country:</label> <span id="country" >-</span><br/>
+			<label>Nearest City:</label> <span id="city" >-</span><br/>
+			<label>Coordinates:</label> <span id="coordinates" >-</span><br/>
+			<label>Elevation:</label> <span id="elevation" >-</span><br/>
+
+			<label>Real time (UTC):</label> <span id="datetime" >-</span>
+
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>
