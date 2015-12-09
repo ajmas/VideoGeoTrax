@@ -2,28 +2,18 @@
 <head>
    	<title>Videos and Maps</title>
 
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://openlayers.org/en/v3.11.2/css/ol.css" type="text/css" />
-    <script src="http://openlayers.org/en/v3.11.2/build/ol.js"></script>
+    <script src="frameworks/jquery/1.11.2/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="frameworks/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="frameworks/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="frameworks/openlayers/3.11.2/ol.css" type="text/css" />
+    <script src="frameworks/openlayers/3.11.2/ol.js"></script>
+    <script src="frameworks/togeojson/head/togeojson.js"></script>
     
-   	<script type="text/javascript" src="js/demo.js"></script> 
-   	<script type="text/javascript" src="js/gpxToTrack.js"></script>   
-   	<script type="text/javascript" src="js/togeojson.js"></script>   
-   	   
-   	   
-   	<script type="text/javascript" src="js/captionator-min.js"></script>   
-   
-	<script type="text/javascript">
-		window.addEventListener("load",function(eventData) {
-			//captionator.captionify();
-			// init the demo
-			init();
-			initMap();
-		});
-	</script>
-   
+   	<script type="text/javascript" src="js/dataview.js"></script> 
+   	<script type="text/javascript" src="js/mapview.js"></script> 
+   	<script type="text/javascript" src="js/videoview.js"></script> 
+   	<script type="text/javascript" src="js/main.js"></script> 
+   	      
    <style type="text/css">
     
        #details label {
@@ -87,7 +77,7 @@
 		</div>
 
 		<div id="mapbox">
-			<div id="map" class="map"><div class="message">Something went wrong. There should be a map here.</div></div>
+			<div id="map" class="map"></div>
 	
 			<div class="configuration" >
 			<input type="radio" style="clear: both" name="displayMode" value="keepCentered"/> <label>Keep centered</label>
