@@ -1,32 +1,37 @@
+/* jshint strict: false */
+/* global $, ol */
+
 var mapView = {
 
     displayMode: 'frameRoute',
     geoTracks: {},
     map: undefined,
-	showMarker: false,
-	showRoute: false,
-	
-    init: function() {
+    showMarker: false,
+    showRoute: false,
+    currentIdx: -1,
 
-		// allow getting layer by id
-		if (ol.Map.prototype.getLayer === undefined) {    
-			ol.Map.prototype.getLayer = function (id) {
-				var layer;
-				this.getLayers().forEach(function (lyr) {
-					if (id == lyr.get('id')) {
-						layer = lyr;
-					}            
-				});
-				return layer;
-			}
-		}
+    init: function() {
+        var scope = this;
+
+        // allow getting layer by id
+        if (ol.Map.prototype.getLayer === undefined) {
+            ol.Map.prototype.getLayer = function (id) {
+                var layer;
+                this.getLayers().forEach(function (lyr) {
+                    if (id == lyr.get('id')) {
+                        layer = lyr;
+                    }
+                });
+                return layer;
+            };
+        }
 
         var geoMarker = new ol.Feature({
             type: 'geoMarker',
             geometry: new ol.geom.Point([0,0])
         });
         geoMarker.setId('geoMarker');
-   		
+
         this.styles = {
             'geoMarker': new ol.style.Style({
                 image: new ol.style.Circle({
@@ -49,7 +54,6 @@ var mapView = {
             })
         };
 
-        var scope = this;
         var vectorLayer = new ol.layer.Vector({
             id: 'myVectorLayer',
             source: new ol.source.Vector({
@@ -81,6 +85,24 @@ var mapView = {
                 zoom: 2
             })
         });
+
+        $("input[type='radio'][name='displayMode']").click(function() {
+            if ($(this).val() == 'keepCentered') {
+                scope.displayMode = 'keepCentered';
+                var idx = scope.currentIdx;
+                if (idx < 0) {
+                    idx = 0;
+                }
+                scope.centerMap(
+                    scope.geoTracks.features[0].geometry.coordinates[idx]
+                    );
+            } else if ($(this).val() == 'frameRoute') {
+                scope.displayMode = 'frameRoute';
+                scope.frameRoute();
+            } else {
+                scope.displayMode = 'manual';
+            }
+        });
     },
 
     setDisplayMode: function(displayMode) {
@@ -89,23 +111,23 @@ var mapView = {
 
     setGeoTracks: function(geoTracks) {
         this.geoTracks = geoTracks;
-        
+
         var routeLine = new ol.geom.LineString(
-        	this.geoTracks.features[0].geometry.coordinates
-        	);
+            this.geoTracks.features[0].geometry.coordinates
+            );
         routeLine.transform('EPSG:4326', 'EPSG:3857');
-        
+
         var routeFeature = new ol.Feature({
            type: 'route',
            name: 'route',
            geometry: routeLine
        });
-    
+
        this.routeExtent = routeLine.getExtent();
-    
+
        this.map.getLayer('myVectorLayer').getSource().addFeature(routeFeature);
        this.frameRoute();
-       
+
        this.showMarker = true;
     },
 
@@ -113,6 +135,7 @@ var mapView = {
         var coords = this.geoTracks.features[0].geometry.coordinates[idx];
         var geoMarker = this.map.getLayer('myVectorLayer').getSource().getFeatureById('geoMarker');
         this.moveFeature(geoMarker, coords);
+        this.currentIdx = idx;
     },
 
     registerCoodinateChangeCallback: function(callback) {
@@ -131,7 +154,7 @@ var mapView = {
         this.map.getView().fit(this.routeExtent, this.map.getSize());
     },
 
-    moveFeature: function(feature, coords) {		
+    moveFeature: function(feature, coords) {
         feature.setGeometry(
             new ol.geom.Point(ol.proj.transform(coords, 'EPSG:4326', 'EPSG:3857'))
         );
@@ -146,3 +169,4 @@ var mapView = {
     }
 
 };
+

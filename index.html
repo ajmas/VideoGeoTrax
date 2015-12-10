@@ -1,107 +1,133 @@
 <html>
-<head>
-   	<title>Videos and Maps</title>
+    <head>
+        <title>Video GeoTrax</title>
+        
+        <!-- third-party resources we depend on -->
+        <script src="frameworks/jquery/1.11.2/jquery-1.11.2.min.js"></script>
+        <link rel="stylesheet" href="frameworks/bootstrap/3.3.5/css/bootstrap.min.css" />
+        <script src="frameworks/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="frameworks/openlayers/3.11.2/ol.css" type="text/css" />
+        <script src="frameworks/openlayers/3.11.2/ol.js"></script>
+        <script src="frameworks/togeojson/head/togeojson.js"></script>
+        
+        <!-- our scripts -->
+        <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/mapview.js"></script>
+        <script type="text/javascript" src="js/videoview.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <style type="text/css">
 
-    <script src="frameworks/jquery/1.11.2/jquery-1.11.2.min.js"></script>
-    <link rel="stylesheet" href="frameworks/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <script src="frameworks/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="frameworks/openlayers/3.11.2/ol.css" type="text/css" />
-    <script src="frameworks/openlayers/3.11.2/ol.js"></script>
-    <script src="frameworks/togeojson/head/togeojson.js"></script>
-    
-   	<script type="text/javascript" src="js/dataview.js"></script> 
-   	<script type="text/javascript" src="js/mapview.js"></script> 
-   	<script type="text/javascript" src="js/videoview.js"></script> 
-   	<script type="text/javascript" src="js/main.js"></script> 
-   	      
-   <style type="text/css">
-    
+       body {
+           margin: 10px;
+       }
+
+       #intro {
+           width: 600px;
+           text-align: justify;
+           margin-bottom: 40px;
+       }
+
        #details label {
            width: 150px;
        }
-       
-       #video {
-           /* float: left; */
-           xdisplay: inline-block;
-           margin-left: 50px; 
-           width: 600px;
-           height: 276px;
-           margin-bottom: 20px;
+
+       #videobox {
+
+       }
+
+       #myVideo {
+           width: 100%;
            background-color: black;
        }
-       
+
        #mapbox {
-           width: 600px;
-           height: 300px;
-           xdisplay: inline-block;
-           margin-left: 50px;  
-           margin-bottom: 20px;                               
+           margin-bottom: 20px;
        }
-       
-       .map {       
-           width: 600px;
-           height: 276px;       
+
+       .map {
+           height: 276px;
        }
-   
+
+       .databox {
+           width: 600px;
+           float: left;
+           margin-right: 20px;
+           margin-bottom: 20px;
+           border: solid 1px #aaa;
+           padding: 5px;
+       }
+
        #details {
-           width: 600px; height: 276px; display: inline-block;
-           margin-left: 50px;  
-           
+           display: inline-block;
+       }
+
+       #elevationbox {
+           display: none;
        }
    </style>
-</head>
-
-<body>
-<h1>Videos and Maps</h1>
-	<div id="intro">
-
-	<p>This is an example of mixing video and a map, to match what is being seen in the
-	video to a a geographical location. Using a mix of HTML5 video and Open Layers.</p>
-
-	</div>
-
-<!-- http://wiki.webmproject.org/webm-metadata/temporal-metadata/webvtt-metadata -->
-
-	<div id="demo">
-
-		<div id="video">
-			<video controls="controls" autobuffer="" loop="" id="myVideo" width="600px">
-				<source src="media/arduino.m4v" type="video/mp4" />
-				<!--
-				<track id="metadataTrack" kind="metadata" src="media/map2.vtt" type="text/vtt" label="Geographical Track" default="" />
-				-->
-				<div class="message">
-					<p><strong>Sorry, you'll need an HTML5 Video capable browser to view this example.</strong></p>
-				</div>
-			</video>
-		</div>
-
-		<div id="mapbox">
-			<div id="map" class="map"></div>
-	
-			<div class="configuration" >
-			<input type="radio" style="clear: both" name="displayMode" value="keepCentered"/> <label>Keep centered</label>
-			&#xa0;&#xa0;
-			<input type="radio" style="clear: both" name="displayMode" value="frameRoute" checked=""/> <label>Frame full route</label>
-			&#xa0;&#xa0;
-			<input type="radio" style="clear: both" name="displayMode" value="manual"/> <label>Manual view</label>			
-			</div>
-		</div>
-
-		<div id="details" style="">
-			<label>Planet:</label> <span id="city" >Earth</span><br/>
-			<label>Nearest Country:</label> <span id="country" >-</span><br/>
-			<label>Nearest City:</label> <span id="city" >-</span><br/>
-			<label>Coordinates:</label> <span id="coordinates" >-</span><br/>
-			<label>Elevation:</label> <span id="elevation" >-</span><br/>
-
-			<label>Real time (UTC):</label> <span id="datetime" >-</span>
-
-		</div>
-	</div>
-
-
-
-</body>
-
-</html>
+    </head>
+    <body>
+        <h1>Video GeoTrax</h1>
+        <div id="intro" >
+            <p>This project is used to demonstrate the display of a video of a journey, along with
+	the corresponding route displayed on the same page, to give geographical context.</p>
+            <p>The main challenge at this point is that the video and data track are acquired
+	through separate applications, so some editing of the track needs to be done to ensure
+	that it lines up with the video time. This could be resolved by having the video and
+	geographical track generated through the same application.</p>
+            <p>At this point the project is just a demonstration, but if there is enough interest
+	it could be developped into a more complete solution.</p>
+            <p>The current implementation uses HTML5 video, along with OpenLayers to display the
+	map. The JS library 'togeojson' is also used, to convert the GPX data file to GeoJSON,
+	to make it easier to get the track and time data.
+    
+            </div>
+            <div id="demo">
+                <div id="videobox" class="databox">
+                    <video controls="controls" autobuffer="" loop="" id="myVideo">
+                        <source src="media/bike-ride.m4v" type="video/mp4" />
+                        <div class="message">
+                            <p>
+                                <strong>Sorry, you'll need an HTML5 Video capable browser to view this example.</strong>
+                            </p>
+                        </div>
+                    </video>
+                </div>
+                <div id="mapbox" class="databox">
+                    <div id="map" class="map"></div>
+                    <div class="configuration" >
+                        <input type="radio" style="clear: both" name="displayMode" value="keepCentered"/>
+                        <label>Keep centered</label>
+            &#xa0;&#xa0;
+            
+                        <input type="radio" style="clear: both" name="displayMode" value="frameRoute" checked=""/>
+                        <label>Frame full route</label>
+            &#xa0;&#xa0;
+            
+                        <input type="radio" style="clear: both" name="displayMode" value="manual"/>
+                        <label>Manual view</label>
+                    </div>
+                </div>
+                <div id="elevationbox" class="databox"></div>
+                <div id="details" class="databox">
+                    <label>Planet:</label>
+                    <span id="city" >Earth</span>
+                    <br/>
+                    <label>Nearest Country:</label>
+                    <span id="country" >-</span>
+                    <br/>
+                    <label>Nearest City:</label>
+                    <span id="city" >-</span>
+                    <br/>
+                    <label>Coordinates:</label>
+                    <span id="coordinates" >-</span>
+                    <br/>
+                    <label>Elevation:</label>
+                    <span id="elevation" >-</span>
+                    <br/>
+                    <label>Real time (UTC):</label>
+                    <span id="datetime" >-</span>
+                </div>
+            </div>
+        </body>
+    </html>
