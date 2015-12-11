@@ -1,69 +1,10 @@
 <gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" creator="MotionXGPSFull 24.1 Build 5049R64">
 <trk>
-<name>Track 006</name>
+<name>bike ride</name>
 <desc>9 Dec 2015  4:05 pm</desc>
 
 <trkseg>
 
-<!--
-<trkpt lat="45.5272341" lon="-73.5937751">
-<ele>74.987</ele>
-<time>2015-12-09T21:05:50.570Z</time>
-</trkpt>
-<trkpt lat="45.5272407" lon="-73.5938955">
-<ele>74.974</ele>
-<time>2015-12-09T21:05:50.999Z</time>
-</trkpt>
-
-
-<trkpt lat="45.5272407" lon="-73.5938955">
-<ele>74.961</ele>
-<time>2015-12-09T21:05:53.000Z</time>
-</trkpt>
-<trkpt lat="45.5272407" lon="-73.5938955">
-<ele>74.929</ele>
-<time>2015-12-09T21:06:33.340Z</time>
-</trkpt>
-
-<trkpt lat="45.5271057" lon="-73.5935868">
-<ele>74.893</ele>
-<time>2015-12-09T21:06:48.695Z</time>
-</trkpt>
-<trkpt lat="45.5270105" lon="-73.5936268">
-<ele>74.737</ele>
-<time>2015-12-09T21:06:51.309Z</time>
-</trkpt>
-<trkpt lat="45.5269293" lon="-73.5937118">
-<ele>74.380</ele>
-<time>2015-12-09T21:06:53.829Z</time>
-</trkpt>
-<trkpt lat="45.5268290" lon="-73.5937936">
-<ele>74.030</ele>
-<time>2015-12-09T21:06:56.725Z</time>
-</trkpt>
-
-<trkpt lat="45.5267473" lon="-73.5938998">
-<ele>73.893</ele>
-<time>2015-12-09T21:06:59.611Z</time>
-</trkpt>
-<trkpt lat="45.5266753" lon="-73.5939837">
-<ele>73.936</ele>
-<time>2015-12-09T21:07:02.000Z</time>
-</trkpt>
-<trkpt lat="45.5266753" lon="-73.5939837">
-<ele>74.060</ele>
-<time>2015-12-09T21:07:03.000Z</time>
-</trkpt>
-
-<trkpt lat="45.5266753" lon="-73.5939837">
-<ele>74.135</ele>
-<time>2015-12-09T21:07:03.100Z</time>
-</trkpt>
-<trkpt lat="45.5264895" lon="-73.5941228">
-<ele>74.101</ele>
-<time>2015-12-09T21:07:10.218Z</time>
-</trkpt>
--->
 <trkpt lat="45.5263929" lon="-73.5942318">
 <ele>74.218</ele>
 <time>2015-12-09T21:07:13.540Z</time>
@@ -523,60 +464,6 @@
 <ele>74.424</ele>
 <time>2015-12-09T21:13:01.072Z</time>
 </trkpt>
-<trkpt lat="45.5272362" lon="-73.5936316">
-<ele>74.287</ele>
-<time>2015-12-09T21:13:04.834Z</time>
-</trkpt>
-<trkpt lat="45.5272673" lon="-73.5934905">
-<ele>74.116</ele>
-<time>2015-12-09T21:13:09.486Z</time>
-</trkpt>
-<trkpt lat="45.5273479" lon="-73.5934030">
-<ele>73.600</ele>
-<time>2015-12-09T21:13:13.999Z</time>
-</trkpt>
-<trkpt lat="45.5273479" lon="-73.5934030">
-<ele>72.721</ele>
-<time>2015-12-09T21:13:19.999Z</time>
-</trkpt>
-<trkpt lat="45.5273479" lon="-73.5934030">
-<ele>72.088</ele>
-<time>2015-12-09T21:13:29.999Z</time>
-</trkpt>
-<trkpt lat="45.5273767" lon="-73.5935339">
-<ele>73.929</ele>
-<time>2015-12-09T21:14:22.581Z</time>
-</trkpt>
-<trkpt lat="45.5273767" lon="-73.5935339">
-<ele>73.929</ele>
-<time>2015-12-09T21:14:22.581Z</time>
-</trkpt>
-<trkpt lat="45.5275863" lon="-73.5938225">
-<ele>74.236</ele>
-<time>2015-12-09T21:17:01.999Z</time>
-</trkpt>
-<trkpt lat="45.5275863" lon="-73.5938225">
-<ele>74.202</ele>
-<time>2015-12-09T21:17:11.999Z</time>
-</trkpt>
 </trkseg>
 </trk>
-<extensions>
-<fpdata xmlns="http://www.motionx.com/GPX-Extensions/1/1" sfv="10" origin="MotionXGPSFull 24.1 Build 5049R64">
-<bin enc="base64">
-RgIAAAACAAAAU1266yWa1UEBAAAAsvU98iaa1UEAAAB8YGSQQIgAAADNeAIATWwkIiS/
-UkAJi8j074xSQAAAAAAKAAAAVHJhY2sgMDA2ABQAAAA5IERlYyAyMDE1ICA0OjA1IHBt
-AAAAAAAC9j3yJprVQRmrPvImmtVBnGUKAHz1FGRQTWNALAAAAAEAAADXElppAGZSwE8X
-UGh8w0ZATWwkIiS/UkAAAAAAAAAkQAAAAAAAAAhAAAAAAABwf0AAAAAAAAAAAAAAAAAA
-AAAAAAAAACIHwCshj1JAAQAAAEnMJd+AGGY/AQAAAAEAAACZhfSQ7U55P9qtSRp7a3a/
-AQAAAAEAAAADAAAAfqAg9HkdbEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAxQAAAEj5/5UmmtVBAAAAAAAAAAAAAAAAAAAAAP8lRLwCAAAAAAAAAAAA
-AAABAAAAJwAAADI0LjEgQnVpbGQgNTA0OVI2NCwgTVhBRSA4LjEgYi4gNjI2UjY0AAAA
-AADQUwAAAQAAAAEGAAAArpdoVsibaFYEpl666yWa1UGmXrrrJZrVQQAAAAAAGB0/AAAA
-AAOCxZheJprVQYLFmF4mmtVBAADgC5q3fEAAAAAABEkvl2ImmtVBSS+XYiaa1UEAAIB+
-NLd9QAAAAAADTIzWYyaa1UFMjNZjJprVQQAAcMILB35AAAAAAASmm5yTJprVQaabnJMm
-mtVBAADQyEf8hEAAAAAAAWxduuslmtVBLGUA8iaa1UEAAAB8YGSQQAAAAAAAAAAA
-</bin>
-</fpdata>
-</extensions>
 </gpx>

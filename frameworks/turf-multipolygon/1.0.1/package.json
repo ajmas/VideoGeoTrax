@@ -1,0 +1,32 @@
+{
+  "name": "turf-multipolygon",
+  "version": "1.0.1",
+  "description": "turf multipolygon module",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js",
+    "doc": "dox -r < index.js | doxme --readme > README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Turfjs/turf-multipolygon.git"
+  },
+  "keywords": [
+    "geo",
+    "point",
+    "multipolygon",
+    "turf",
+    "geojson"
+  ],
+  "author": "morganherlocker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Turfjs/turf-multipolygon/issues"
+  },
+  "homepage": "https://github.com/Turfjs/turf-multipolygon",
+  "devDependencies": {
+    "dox": "^0.7.1",
+    "doxme": "^1.8.2",
+    "tape": "^4.0.0"
+  }
+}

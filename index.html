@@ -9,9 +9,14 @@
         <link rel="stylesheet" href="frameworks/openlayers/3.11.2/ol.css" type="text/css" />
         <script src="frameworks/openlayers/3.11.2/ol.js"></script>
         <script src="frameworks/togeojson/head/togeojson.js"></script>
+        <script src="frameworks/turf/2.0.2/turf.min.js"></script>
+        <script src="frameworks/turf-multipolygon/1.0.1/turf-multipolygon.js"></script>
+
+        <script src="frameworks/highcharts/4.1.10/js/highcharts.js"></script>
         
         <!-- our scripts -->
         <script type="text/javascript" src="js/dataview.js"></script>
+        <script type="text/javascript" src="js/elevationview.js"></script>        
         <script type="text/javascript" src="js/mapview.js"></script>
         <script type="text/javascript" src="js/videoview.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
@@ -31,39 +36,37 @@
            width: 150px;
        }
 
-       #videobox {
-
-       }
-
        #myVideo {
            width: 100%;
            background-color: black;
        }
 
+       .databox {
+           width: 600px;
+           margin-right: 20px;
+           margin-bottom: 20px;
+           padding: 5px;
+           overflow: hidden;
+           display: inline-block;
+           vertical-align: top;
+       }
+       
+       #videobox {
+
+       }
+       
        #mapbox {
            margin-bottom: 20px;
        }
 
+       #elevationbox {           
+           height: 200px;
+       }
+       
        .map {
            height: 276px;
        }
 
-       .databox {
-           width: 600px;
-           float: left;
-           margin-right: 20px;
-           margin-bottom: 20px;
-           border: solid 1px #aaa;
-           padding: 5px;
-       }
-
-       #details {
-           display: inline-block;
-       }
-
-       #elevationbox {
-           display: none;
-       }
    </style>
     </head>
     <body>
@@ -108,7 +111,11 @@
                         <label>Manual view</label>
                     </div>
                 </div>
-                <div id="elevationbox" class="databox"></div>
+                
+                <div id="elevationbox" class="databox">
+
+                </div>
+                
                 <div id="details" class="databox">
                     <label>Planet:</label>
                     <span id="city" >Earth</span>
@@ -126,7 +133,10 @@
                     <span id="elevation" >-</span>
                     <br/>
                     <label>Real time (UTC):</label>
-                    <span id="datetime" >-</span>
+                    <span id="datetimeUTC" >-</span>
+                    <br/>
+                    <label>Real time (Local):</label>
+                    <span id="datetimeLocal" >-</span>                    
                 </div>
             </div>
         </body>

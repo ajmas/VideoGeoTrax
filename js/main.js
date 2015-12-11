@@ -16,6 +16,7 @@ window.addEventListener("load",function(eventData) {
 
     mapView.init();
     videoView.init();
+    dataView.init();
     
     loadGpx(mapUrl, function (data) {
         
@@ -24,10 +25,13 @@ window.addEventListener("load",function(eventData) {
         videoView.setGeoTracks(geoJSON);
         mapView.setGeoTracks(geoJSON);
         dataView.setGeoTracks(geoJSON);
+        elevationView.setGeoTracks(geoJSON);
         
         videoView.registerCoodinateChangeCallback( function (coordinate, geoTracks, idx) {            
             mapView.setCurrentTrackIdx(idx);
             dataView.setCurrentTrackIdx(idx);
+            elevationView.setCurrentTrackIdx(idx);
+
         });
         
     });            

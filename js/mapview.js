@@ -57,7 +57,7 @@ var mapView = {
         var vectorLayer = new ol.layer.Vector({
             id: 'myVectorLayer',
             source: new ol.source.Vector({
-                features: [geoMarker]//routeFeature, geoMarker]
+                features: [geoMarker]
             }),
             style: function(feature, resolution) {
                 if (!scope.showMarker && feature.get('type') === 'geoMarker') {
